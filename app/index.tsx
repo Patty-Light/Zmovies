@@ -30,12 +30,13 @@ export default function Index() {
   }
 
   const handleSearch = async () => {
-    if (search.trim() === "") return;
+    const searchQuery = search.trim();
+    if (searchQuery === "") return;
 
     setLoading(true);
 
     try {
-      const data = await Search_Movies(search);
+      const data = await Search_Movies(searchQuery);
       const full = await Promise.all(data.Search.map((m: any) => getMovieById(m.imdbID)));
       setMovies(full);
       setFeatured(full[0]);
