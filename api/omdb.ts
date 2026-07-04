@@ -37,7 +37,7 @@ export const HighRatedMovies = async () => {
     const res = await API.get("/", {
         params: {
             s: "movie",
-            // type: "movie",
+            type: "movie",
             apiKey: API_KEY,
             y: currentYear,
         }
